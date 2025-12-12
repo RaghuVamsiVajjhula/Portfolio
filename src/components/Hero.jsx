@@ -7,14 +7,13 @@ const Hero = () => {
 
   // Image paths - place your photos in public/images/ directory
   // Any of these files that exist in public/images/ will show; others fall back to placeholder
-  const base = import.meta.env.BASE_URL
   const images = [
-    `${base}images/photo1.jpg`,
-    `${base}images/photo2.jpg`,
-    `${base}images/photo3.jpg`,
-    `${base}images/photo4.jpg`,
-    `${base}images/photo5.jpg`,
-    `${base}images/photo6.jpg`,
+    '/images/photo1.jpg',
+    '/images/photo2.jpg',
+    '/images/photo3.jpg',
+    '/images/photo4.jpg',
+    '/images/photo5.jpg',
+    '/images/photo6.jpg',
   ]
 
   useEffect(() => {
