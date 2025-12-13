@@ -1,0 +1,38 @@
+.footer {
+  background: var(--bg-dark);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-content p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+.heart-icon {
+  color: var(--primary-color);
+  animation: heartbeat 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
