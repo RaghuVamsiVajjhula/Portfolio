@@ -1,37 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { FaLinkedin, FaGithub, FaEnvelope, FaChevronLeft, FaChevronRight, FaGraduationCap } from 'react-icons/fa'
+import React from 'react'
+import { FaLinkedin, FaGithub, FaEnvelope, FaGraduationCap } from 'react-icons/fa'
 import './Hero.css'
 
 const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  // Image paths - place your photos in public/images/ directory
-  // Any of these files that exist in public/images/ will show; others fall back to placeholder
+  // Image path - place your photo in public/images/ directory
   const base = import.meta.env.BASE_URL
-  const images = [
-    `${base}images/photo1.jpg`,
-    `${base}images/photo2.jpg`,
-    `${base}images/photo3.jpg`,
-    `${base}images/photo4.jpg`,
-    `${base}images/photo5.jpg`,
-    `${base}images/photo6.jpg`,
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 4000) // Change every 4 seconds
-
-    return () => clearInterval(interval)
-  }, [images.length])
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-  }
+  const image = `${base}images/photo1.jpg`
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
@@ -105,8 +79,8 @@ const Hero = () => {
           <div className="hero-image">
             <div className="image-carousel">
               <img
-                src={images[currentImageIndex]}
-                alt={`Profile ${currentImageIndex + 1}`}
+                src={image}
+                alt="Profile"
                 className="carousel-image"
                 onError={(e) => {
                   // Fallback if image doesn't exist - show placeholder
@@ -119,22 +93,6 @@ const Hero = () => {
               />
               <div className="carousel-placeholder">
                 <span>RV</span>
-              </div>
-              <button className="carousel-btn carousel-btn-prev" onClick={prevImage} aria-label="Previous image">
-                <FaChevronLeft />
-              </button>
-              <button className="carousel-btn carousel-btn-next" onClick={nextImage} aria-label="Next image">
-                <FaChevronRight />
-              </button>
-              <div className="carousel-indicators">
-                {images.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`carousel-indicator ${index === currentImageIndex ? 'active' : ''}`}
-                    onClick={() => setCurrentImageIndex(index)}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
-                ))}
               </div>
             </div>
           </div>
